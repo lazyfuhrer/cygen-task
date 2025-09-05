@@ -1,0 +1,206 @@
+/* @tailwind directives are valid - ignore linter warnings */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated color tokens to match modern admin design brief */
+    --background: 0 0% 100%; /* White main background */
+    --foreground: 220 13% 22%; /* #374151 - Primary text color */
+    --card: 210 40% 96%; /* #f1f5f9 - Card backgrounds */
+    --card-foreground: 215 25% 27%; /* #475569 - Card text */
+    --popover: 0 0% 100%; /* White popover background */
+    --popover-foreground: 220 13% 22%; /* #374151 - Popover text */
+    --primary: 160 84% 20%; /* #059669 - Primary emerald brand color */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --secondary: 160 84% 39%; /* #10b981 - Secondary emerald accent */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+    --muted: 210 40% 96%; /* #f1f5f9 - Muted sections */
+    --muted-foreground: 220 13% 22%; /* #374151 - Muted text */
+    --accent: 25 95% 53%; /* #d97706 - Orange accent for highlights */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --destructive: 0 84% 60%; /* #ef4444 - Error/destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive */
+    --border: 220 13% 91%; /* #e5e7eb - Border color */
+    --input: 210 40% 98%; /* #f9fafb - Input backgrounds */
+    --ring: 160 84% 20%; /* #059669 - Focus ring color */
+    --radius: 0.5rem;
+
+    /* Added sidebar-specific tokens for admin layout */
+    --sidebar-background: 210 40% 96%; /* #f1f5f9 - Sidebar background */
+    --sidebar-foreground: 220 13% 22%; /* #374151 - Sidebar text */
+    --sidebar-primary: 160 84% 20%; /* #059669 - Primary sidebar elements */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text on primary */
+    --sidebar-accent: 160 84% 39%; /* #10b981 - Sidebar accent */
+    --sidebar-accent-foreground: 0 0% 100%; /* White sidebar accent text */
+    --sidebar-border: 220 13% 91%; /* #e5e7eb - Sidebar borders */
+    --sidebar-ring: 160 84% 39%; /* #10b981 - Sidebar focus ring */
+  }
+
+  .dark {
+    /* Updated dark mode tokens to complement the emerald theme */
+    --background: 220 13% 4%; /* Very dark background */
+    --foreground: 210 40% 98%; /* Light text */
+    --card: 220 13% 6%; /* Dark card background */
+    --card-foreground: 210 40% 98%; /* Light card text */
+    --popover: 220 13% 4%; /* Dark popover */
+    --popover-foreground: 210 40% 98%; /* Light popover text */
+    --primary: 160 84% 39%; /* Lighter emerald for dark mode */
+    --primary-foreground: 220 13% 4%; /* Dark text on primary */
+    --secondary: 160 84% 20%; /* Darker emerald secondary */
+    --secondary-foreground: 210 40% 98%; /* Light text on secondary */
+    --muted: 220 13% 10%; /* Dark muted background */
+    --muted-foreground: 215 20% 65%; /* Muted text */
+    --accent: 25 95% 53%; /* Same orange accent */
+    --accent-foreground: 220 13% 4%; /* Dark text on accent */
+    --destructive: 0 84% 60%; /* Same destructive color */
+    --destructive-foreground: 210 40% 98%; /* Light text on destructive */
+    --border: 220 13% 15%; /* Dark borders */
+    --input: 220 13% 10%; /* Dark input background */
+    --ring: 160 84% 39%; /* Lighter emerald ring */
+
+    --sidebar-background: 220 13% 6%; /* Dark sidebar */
+    --sidebar-foreground: 210 40% 95%; /* Light sidebar text */
+    --sidebar-primary: 160 84% 39%; /* Emerald primary in sidebar */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text on primary */
+    --sidebar-accent: 160 84% 20%; /* Darker emerald accent */
+    --sidebar-accent-foreground: 0 0% 100%; /* White accent text */
+    --sidebar-border: 220 13% 15%; /* Dark sidebar borders */
+    --sidebar-ring: 160 84% 39%; /* Emerald focus ring */
+  }
+
+  .dark body {
+    background: linear-gradient(135deg, 
+      hsl(220, 13%, 4%) 0%, 
+      hsl(220, 13%, 6%) 25%, 
+      hsl(160, 84%, 8%) 50%, 
+      hsl(160, 84%, 6%) 75%, 
+      hsl(220, 13%, 4%) 100%);
+    background-attachment: fixed;
+  }
+}
+
+@layer base {
+  body {
+    background: linear-gradient(135deg, 
+      hsl(210, 40%, 98%) 0%, 
+      hsl(210, 40%, 96%) 25%, 
+      hsl(160, 84%, 95%) 50%, 
+      hsl(160, 84%, 97%) 75%, 
+      hsl(210, 40%, 98%) 100%);
+    background-attachment: fixed;
+    color: hsl(var(--foreground));
+    /* Added font smoothing for better text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Added utility classes for consistent spacing and typography */
+  .container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+  }
+
+  /* Gradient utility classes for enhanced UI */
+  .gradient-card {
+    background: linear-gradient(145deg, 
+      hsl(var(--card)) 0%, 
+      hsl(210, 40%, 98%) 100%);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .gradient-card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .gradient-card-hover:hover {
+    background: linear-gradient(145deg, 
+      hsl(210, 40%, 98%) 0%, 
+      hsl(160, 84%, 97%) 100%);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--secondary)) 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, 
+      hsl(var(--secondary)) 0%, 
+      hsl(160, 84%, 45%) 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, 
+      hsl(var(--accent)) 0%, 
+      hsl(25, 95%, 60%) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--secondary)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced sidebar gradient */
+  .sidebar-gradient {
+    background: linear-gradient(145deg, 
+      hsl(var(--card)) 0%, 
+      hsl(210, 40%, 98%) 100%);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .gradient-card {
+    background: linear-gradient(145deg, 
+      hsl(var(--card)) 0%, 
+      hsl(220, 13%, 8%) 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .gradient-card-hover:hover {
+    background: linear-gradient(145deg, 
+      hsl(220, 13%, 8%) 0%, 
+      hsl(160, 84%, 10%) 100%);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .sidebar-gradient {
+    background: linear-gradient(145deg, 
+      hsl(var(--card)) 0%, 
+      hsl(220, 13%, 8%) 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
