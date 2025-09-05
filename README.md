@@ -20,7 +20,7 @@ CREATE DATABASE cygen_task;
 
 Create `backend/.env`:
 ```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/cygen_task?schema=public"
+DATABASE_URL="postgresql://<pg_user>:<pg_password>@localhost:5432/cygen_task?schema=public"
 PORT=8000
 ORIGIN=http://localhost:3000
 ```
